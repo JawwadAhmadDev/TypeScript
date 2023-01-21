@@ -1,10 +1,10 @@
 {
-  "name": "number_guessing",
-  "version": "1.0.0",
+  "name": "number_guessing-jawwad",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "type": "module",
-  "bin": "./src/index.js",
+  "bin": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
