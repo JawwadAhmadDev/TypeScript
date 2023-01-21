@@ -69,7 +69,7 @@ const showResult = async (userInput: UserInput): Promise<void> => {
     const _operator = userInput.operator;
     const _secondOperand = Number(userInput.secondOperand);
 
-    const spinner = createSpinner("Evaluating Resutl...").start();
+    const spinner = createSpinner("Evaluating Result...").start();
     await sleep(1000);
     spinner.stop();
 
@@ -98,7 +98,21 @@ const showResult = async (userInput: UserInput): Promise<void> => {
     }
 }
 
+
+const askAgain = async (): Promise<boolean> => {
+     const runAgain = await inquirer.prompt({
+        type: "confirm",
+        name: "run_again",
+        message: "Run Calculator again?"
+     })
+
+     return runAgain.run_again;
+}
+
 // await showMessageInFiglet("Calculator");
 await welcome();
-const input: UserInput = await takeInput();
-showResult(input);
+do {
+    const input: UserInput = await takeInput();
+    await showResult(input);
+    var runAgain: boolean = await askAgain();
+} while (runAgain);
